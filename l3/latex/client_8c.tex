@@ -1,0 +1,142 @@
+\hypertarget{client_8c}{}\section{q2/client/client.c File Reference}
+\label{client_8c}\index{q2/client/client.\+c@{q2/client/client.\+c}}
+{\ttfamily \#include $<$arpa/inet.\+h$>$}\newline
+{\ttfamily \#include $<$netinet/in.\+h$>$}\newline
+{\ttfamily \#include $<$stdio.\+h$>$}\newline
+{\ttfamily \#include $<$stdlib.\+h$>$}\newline
+{\ttfamily \#include $<$string.\+h$>$}\newline
+{\ttfamily \#include $<$sys/socket.\+h$>$}\newline
+{\ttfamily \#include $<$sys/types.\+h$>$}\newline
+{\ttfamily \#include $<$unistd.\+h$>$}\newline
+\subsection*{Macros}
+\begin{DoxyCompactItemize}
+\item 
+\#define \hyperlink{client_8c_ac0a4ce3bd388c7823743b526e7cb77fb}{I\+P\+\_\+\+P\+R\+O\+T\+O\+C\+OL}~0
+\item 
+\#define \hyperlink{client_8c_ad8a262037cbfb38d1512f0073eeb7a66}{I\+P\+\_\+\+A\+D\+D\+R\+E\+SS}~\char`\"{}127.\+0.\+0.\+1\char`\"{}
+\item 
+\#define \hyperlink{client_8c_a47a4d3bbd05894abbce0ffd1d266aa88}{P\+O\+R\+T\+\_\+\+NO}~15050
+\item 
+\#define \hyperlink{client_8c_a30ba2113ad1b0f91029d017fc988d9af}{N\+E\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}~32
+\item 
+\#define \hyperlink{client_8c_abace6f1e028b11cc237bd95c5dbe451a}{cipher\+Key}~\textquotesingle{}S\textquotesingle{}
+\item 
+\#define \hyperlink{client_8c_a6e618c0ec6ffc8ac4489d11c65a5a67c}{sendrecvflag}~0
+\end{DoxyCompactItemize}
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+void \hyperlink{client_8c_a37e9b2e0b0fcbe7d2d5bd9c9467c1fb8}{clear\+Buf} (char $\ast$b)
+\item 
+char \hyperlink{client_8c_a4fc6ad5854f646cf1e284f66e104219f}{Cipher} (char ch)
+\item 
+int \hyperlink{client_8c_a0d285ee71db2ee39e24c4a6e552991f3}{recv\+File} (char $\ast$buf, int s)
+\item 
+int \hyperlink{client_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}{main} ()
+\end{DoxyCompactItemize}
+
+
+\subsection{Macro Definition Documentation}
+\mbox{\Hypertarget{client_8c_abace6f1e028b11cc237bd95c5dbe451a}\label{client_8c_abace6f1e028b11cc237bd95c5dbe451a}} 
+\index{client.\+c@{client.\+c}!cipher\+Key@{cipher\+Key}}
+\index{cipher\+Key@{cipher\+Key}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{cipher\+Key}{cipherKey}}
+{\footnotesize\ttfamily \#define cipher\+Key~\textquotesingle{}S\textquotesingle{}}
+
+
+
+Definition at line 14 of file client.\+c.
+
+\mbox{\Hypertarget{client_8c_ad8a262037cbfb38d1512f0073eeb7a66}\label{client_8c_ad8a262037cbfb38d1512f0073eeb7a66}} 
+\index{client.\+c@{client.\+c}!I\+P\+\_\+\+A\+D\+D\+R\+E\+SS@{I\+P\+\_\+\+A\+D\+D\+R\+E\+SS}}
+\index{I\+P\+\_\+\+A\+D\+D\+R\+E\+SS@{I\+P\+\_\+\+A\+D\+D\+R\+E\+SS}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{I\+P\+\_\+\+A\+D\+D\+R\+E\+SS}{IP\_ADDRESS}}
+{\footnotesize\ttfamily \#define I\+P\+\_\+\+A\+D\+D\+R\+E\+SS~\char`\"{}127.\+0.\+0.\+1\char`\"{}}
+
+
+
+Definition at line 11 of file client.\+c.
+
+\mbox{\Hypertarget{client_8c_ac0a4ce3bd388c7823743b526e7cb77fb}\label{client_8c_ac0a4ce3bd388c7823743b526e7cb77fb}} 
+\index{client.\+c@{client.\+c}!I\+P\+\_\+\+P\+R\+O\+T\+O\+C\+OL@{I\+P\+\_\+\+P\+R\+O\+T\+O\+C\+OL}}
+\index{I\+P\+\_\+\+P\+R\+O\+T\+O\+C\+OL@{I\+P\+\_\+\+P\+R\+O\+T\+O\+C\+OL}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{I\+P\+\_\+\+P\+R\+O\+T\+O\+C\+OL}{IP\_PROTOCOL}}
+{\footnotesize\ttfamily \#define I\+P\+\_\+\+P\+R\+O\+T\+O\+C\+OL~0}
+
+
+
+Definition at line 10 of file client.\+c.
+
+\mbox{\Hypertarget{client_8c_a30ba2113ad1b0f91029d017fc988d9af}\label{client_8c_a30ba2113ad1b0f91029d017fc988d9af}} 
+\index{client.\+c@{client.\+c}!N\+E\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE@{N\+E\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}}
+\index{N\+E\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE@{N\+E\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{N\+E\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE}{NET\_BUF\_SIZE}}
+{\footnotesize\ttfamily \#define N\+E\+T\+\_\+\+B\+U\+F\+\_\+\+S\+I\+ZE~32}
+
+
+
+Definition at line 13 of file client.\+c.
+
+\mbox{\Hypertarget{client_8c_a47a4d3bbd05894abbce0ffd1d266aa88}\label{client_8c_a47a4d3bbd05894abbce0ffd1d266aa88}} 
+\index{client.\+c@{client.\+c}!P\+O\+R\+T\+\_\+\+NO@{P\+O\+R\+T\+\_\+\+NO}}
+\index{P\+O\+R\+T\+\_\+\+NO@{P\+O\+R\+T\+\_\+\+NO}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{P\+O\+R\+T\+\_\+\+NO}{PORT\_NO}}
+{\footnotesize\ttfamily \#define P\+O\+R\+T\+\_\+\+NO~15050}
+
+
+
+Definition at line 12 of file client.\+c.
+
+\mbox{\Hypertarget{client_8c_a6e618c0ec6ffc8ac4489d11c65a5a67c}\label{client_8c_a6e618c0ec6ffc8ac4489d11c65a5a67c}} 
+\index{client.\+c@{client.\+c}!sendrecvflag@{sendrecvflag}}
+\index{sendrecvflag@{sendrecvflag}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{sendrecvflag}{sendrecvflag}}
+{\footnotesize\ttfamily \#define sendrecvflag~0}
+
+
+
+Definition at line 15 of file client.\+c.
+
+
+
+\subsection{Function Documentation}
+\mbox{\Hypertarget{client_8c_a4fc6ad5854f646cf1e284f66e104219f}\label{client_8c_a4fc6ad5854f646cf1e284f66e104219f}} 
+\index{client.\+c@{client.\+c}!Cipher@{Cipher}}
+\index{Cipher@{Cipher}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{Cipher()}{Cipher()}}
+{\footnotesize\ttfamily char Cipher (\begin{DoxyParamCaption}\item[{char}]{ch }\end{DoxyParamCaption})}
+
+
+
+Definition at line 19 of file client.\+c.
+
+\mbox{\Hypertarget{client_8c_a37e9b2e0b0fcbe7d2d5bd9c9467c1fb8}\label{client_8c_a37e9b2e0b0fcbe7d2d5bd9c9467c1fb8}} 
+\index{client.\+c@{client.\+c}!clear\+Buf@{clear\+Buf}}
+\index{clear\+Buf@{clear\+Buf}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{clear\+Buf()}{clearBuf()}}
+{\footnotesize\ttfamily void clear\+Buf (\begin{DoxyParamCaption}\item[{char $\ast$}]{b }\end{DoxyParamCaption})}
+
+
+
+Definition at line 17 of file client.\+c.
+
+\mbox{\Hypertarget{client_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}\label{client_8c_ae66f6b31b5ad750f1fe042a706a4e3d4}} 
+\index{client.\+c@{client.\+c}!main@{main}}
+\index{main@{main}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{main()}{main()}}
+{\footnotesize\ttfamily int main (\begin{DoxyParamCaption}{ }\end{DoxyParamCaption})}
+
+
+
+Definition at line 33 of file client.\+c.
+
+\mbox{\Hypertarget{client_8c_a0d285ee71db2ee39e24c4a6e552991f3}\label{client_8c_a0d285ee71db2ee39e24c4a6e552991f3}} 
+\index{client.\+c@{client.\+c}!recv\+File@{recv\+File}}
+\index{recv\+File@{recv\+File}!client.\+c@{client.\+c}}
+\subsubsection{\texorpdfstring{recv\+File()}{recvFile()}}
+{\footnotesize\ttfamily int recv\+File (\begin{DoxyParamCaption}\item[{char $\ast$}]{buf,  }\item[{int}]{s }\end{DoxyParamCaption})}
+
+
+
+Definition at line 21 of file client.\+c.
+
